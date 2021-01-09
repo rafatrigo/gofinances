@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { FiTrash2 } from 'react-icons/fi';
 
 import income from '../../assets/income.svg';
 import outcome from '../../assets/outcome.svg';
@@ -10,7 +11,13 @@ import Header from '../../components/Header';
 
 import formatValue from '../../utils/formatValue';
 
-import { Container, CardContainer, Card, TableContainer } from './styles';
+import {
+  Container,
+  CardContainer,
+  Card,
+  TableContainer,
+  ButtonDelete,
+} from './styles';
 
 interface Transaction {
   id: string;
@@ -33,7 +40,7 @@ const Dashboard: React.FC = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [balance, setBalance] = useState<Balance>({} as Balance);
 
-  async function loadTransactions(): Promise<void> {
+  const loadTransactions = useCallback(async (): Promise<void> => {
     const response = await api.get('/transactions');
 
     const transactionsFormatted = response.data.transactions.map(
@@ -54,11 +61,29 @@ const Dashboard: React.FC = () => {
 
     setTransactions(transactionsFormatted);
     setBalance(balanceFormatted);
-  }
+  }, []);
 
   useEffect(() => {
     loadTransactions();
-  }, []);
+  }, [loadTransactions]);
+
+  const DeleteTransaction = useCallback(
+    async id => {
+      await api.delete(`/transactions/${id}`);
+      loadTransactions();
+    },
+    [loadTransactions],
+  );
+
+  const handleDeleteTransaction = useCallback(
+    async id => {
+      setTransactions(state =>
+        state.filter(transaction => transaction.id !== id),
+      );
+      DeleteTransaction(id);
+    },
+    [DeleteTransaction],
+  );
 
   return (
     <>
@@ -109,6 +134,13 @@ const Dashboard: React.FC = () => {
                   </td>
                   <td>{transaction.category.title}</td>
                   <td>{transaction.formattedDate}</td>
+                  <td>
+                    <ButtonDelete
+                      onClick={() => handleDeleteTransaction(transaction.id)}
+                    >
+                      <FiTrash2 size={20} color="#e83f5b" />
+                    </ButtonDelete>
+                  </td>
                 </tr>
               ))}
             </tbody>

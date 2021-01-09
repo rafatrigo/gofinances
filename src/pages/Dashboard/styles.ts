@@ -93,3 +93,12 @@ export const TableContainer = styled.section`
     }
   }
 `;
+
+export const ButtonDelete = styled.button`
+  height: 25px;
+  width: 25px;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+`;
