@@ -95,10 +95,13 @@ export const TableContainer = styled.section`
 `;
 
 export const ButtonDelete = styled.button`
-  height: 25px;
-  width: 25px;
+  height: 65px;
+  width: 100%;
+
   align-items: center;
   justify-content: center;
-  background-color: transparent;
+  background-color: #fff;
   border: none;
+
+  padding-right: 10px;
 `;

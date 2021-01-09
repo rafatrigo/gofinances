@@ -134,13 +134,11 @@ const Dashboard: React.FC = () => {
                   </td>
                   <td>{transaction.category.title}</td>
                   <td>{transaction.formattedDate}</td>
-                  <td>
-                    <ButtonDelete
-                      onClick={() => handleDeleteTransaction(transaction.id)}
-                    >
-                      <FiTrash2 size={20} color="#e83f5b" />
-                    </ButtonDelete>
-                  </td>
+                  <ButtonDelete
+                    onClick={() => handleDeleteTransaction(transaction.id)}
+                  >
+                    <FiTrash2 size={20} color="#e83f5b" />
+                  </ButtonDelete>
                 </tr>
               ))}
             </tbody>
