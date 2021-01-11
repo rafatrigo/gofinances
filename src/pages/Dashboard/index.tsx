@@ -22,6 +22,7 @@ import {
   TableBody,
   TableData,
   TableRow,
+  ButtonCreate,
 } from './styles';
 
 interface Transaction {
@@ -119,6 +120,8 @@ const Dashboard: React.FC = () => {
         </CardContainer>
 
         <TableContainer>
+          <ButtonCreate>Criar nova transação</ButtonCreate>
+
           <Table>
             <TableHead>
               <span>Título</span>

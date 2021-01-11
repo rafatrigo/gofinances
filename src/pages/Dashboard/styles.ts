@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { shade } from 'polished';
 
 interface CardProps {
   total?: boolean;
@@ -50,6 +51,8 @@ export const Card = styled.div`
 export const TableContainer = styled.section`
   margin-top: 64px;
   width: 100%;
+  max-width: 1080px;
+  position: relative;
 `;
 
 export const Table = styled.div`
@@ -134,4 +137,24 @@ export const ButtonDelete = styled.button`
   border: none;
 
   margin-right: 10px;
+`;
+
+export const ButtonCreate = styled.button`
+  position: absolute;
+  right: 0;
+
+  height: 65px;
+  padding: 10px;
+  border: none;
+
+  color: #fff;
+  background-color: #12a454;
+  border-radius: 8px;
+
+  transition: 0.3s;
+
+  &:hover {
+    background-color: ${shade(0.2, '#12a454')};
+    opacity: 0.8;
+  }
 `;
