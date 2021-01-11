@@ -17,6 +17,11 @@ import {
   Card,
   TableContainer,
   ButtonDelete,
+  Table,
+  TableHead,
+  TableBody,
+  TableData,
+  TableRow,
 } from './styles';
 
 interface Transaction {
@@ -114,35 +119,32 @@ const Dashboard: React.FC = () => {
         </CardContainer>
 
         <TableContainer>
-          <table>
-            <thead>
-              <tr>
-                <th>Título</th>
-                <th>Preço</th>
-                <th>Categoria</th>
-                <th>Data</th>
-              </tr>
-            </thead>
-
-            <tbody>
+          <Table>
+            <TableHead>
+              <span>Título</span>
+              <span>Preço</span>
+              <span>Categoria</span>
+              <span>Data</span>
+            </TableHead>
+            <TableBody>
               {transactions.map(transaction => (
-                <tr key={transaction.id}>
-                  <td className="title">{transaction.title}</td>
-                  <td className={transaction.type}>
+                <TableRow key={transaction.id}>
+                  <TableData className="title">{transaction.title}</TableData>
+                  <TableData className={transaction.type}>
                     {transaction.type === 'outcome' && '- '}
                     {transaction.formattedValue}
-                  </td>
-                  <td>{transaction.category.title}</td>
-                  <td>{transaction.formattedDate}</td>
+                  </TableData>
+                  <TableData>{transaction.category.title}</TableData>
+                  <TableData>{transaction.formattedDate}</TableData>
                   <ButtonDelete
                     onClick={() => handleDeleteTransaction(transaction.id)}
                   >
                     <FiTrash2 size={20} color="#e83f5b" />
                   </ButtonDelete>
-                </tr>
+                </TableRow>
               ))}
-            </tbody>
-          </table>
+            </TableBody>
+          </Table>
         </TableContainer>
       </Container>
     </>

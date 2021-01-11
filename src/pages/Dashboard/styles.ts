@@ -49,59 +49,89 @@ export const Card = styled.div`
 
 export const TableContainer = styled.section`
   margin-top: 64px;
+  width: 100%;
+`;
 
-  table {
-    width: 100%;
-    border-spacing: 0 8px;
+export const Table = styled.div`
+  width: 100%;
+  height: 100%;
+  border-spacing: 0 8px;
+`;
+export const TableHead = styled.div`
+  width: 100%;
+  color: #969cb3;
+  font-weight: normal;
+  padding: 20px 32px;
+  text-align: left;
+  font-size: 16px;
+  line-height: 24px;
 
-    th {
-      color: #969cb3;
-      font-weight: normal;
-      padding: 20px 32px;
-      text-align: left;
-      font-size: 16px;
-      line-height: 24px;
-    }
+  display: flex;
+  flex-direction: row;
 
-    td {
-      padding: 20px 32px;
-      border: 0;
-      background: #fff;
-      font-size: 16px;
-      font-weight: normal;
-      color: #969cb3;
+  margin-bottom: 20px;
 
-      &.title {
-        color: #363f5f;
-      }
+  span {
+    display: flex;
+    flex: 1;
+  }
+`;
 
-      &.income {
-        color: #12a454;
-      }
+export const TableBody = styled.div`
+  width: 100%;
 
-      &.outcome {
-        color: #e83f5b;
-      }
-    }
+  div:first-child {
+    border-radius: 8px 8px 0 0;
+  }
 
-    td:first-child {
-      border-radius: 8px 0 0 8px;
-    }
+  div:last-child {
+    border-radius: 0 0 8px 8px;
+  }
+`;
 
-    td:last-child {
-      border-radius: 0 8px 8px 0;
-    }
+export const TableRow = styled.div`
+  width: 100%;
+  background: #fff;
+  height: 65px;
+
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 8px;
+`;
+
+export const TableData = styled.span`
+  padding: 20px 32px;
+  border: 0;
+
+  font-size: 16px;
+  font-weight: normal;
+  color: #969cb3;
+
+  display: flex;
+  flex: 1;
+
+  &.title {
+    color: #363f5f;
+  }
+
+  &.income {
+    color: #12a454;
+  }
+
+  &.outcome {
+    color: #e83f5b;
   }
 `;
 
 export const ButtonDelete = styled.button`
   height: 65px;
-  width: 100%;
+  width: 25px;
 
   align-items: center;
   justify-content: center;
   background-color: #fff;
   border: none;
 
-  padding-right: 10px;
+  margin-right: 10px;
 `;
