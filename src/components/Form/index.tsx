@@ -3,9 +3,11 @@ import React, { useCallback, useState } from 'react';
 import { Form } from '@unform/web';
 import income from '../../assets/income.svg';
 import outcome from '../../assets/outcome.svg';
+
 import { useForm } from '../../hooks/Form';
+import { useTransaction } from '../../hooks/Transactions';
+
 import Input from '../Input';
-import api from '../../services/api';
 
 import {
   Container,
@@ -15,24 +17,34 @@ import {
   CancelOrSubmit,
 } from './styles';
 
+interface CreateTransaction {
+  title: string;
+  type: string;
+  value: string;
+  category: string;
+}
+
 const FormComponent: React.FC = () => {
   const { hideForm } = useForm();
+  const { createTransaction, loadTransactions } = useTransaction();
+
   const [transactionType, setTransactionType] = useState<string>('income');
 
   const handleSubmit = useCallback(
-    async ({ title, value, category }): Promise<void> => {
+    async ({ title, value, category }: CreateTransaction): Promise<void> => {
+      const type = transactionType;
       const transaction = {
         title,
         value,
         category,
-        type: transactionType,
+        type,
       };
 
-      await api.post('/transactions', transaction);
+      createTransaction(transaction);
 
       hideForm();
     },
-    [hideForm, transactionType],
+    [hideForm, transactionType, createTransaction],
   );
 
   const setType = useCallback(value => {

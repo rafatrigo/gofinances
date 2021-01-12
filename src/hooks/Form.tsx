@@ -1,10 +1,4 @@
-import React, {
-  useContext,
-  createContext,
-  useCallback,
-  useState,
-  ComponentType,
-} from 'react';
+import React, { useContext, createContext, useCallback, useState } from 'react';
 
 interface FormContextData {
   showForm(): void;

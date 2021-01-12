@@ -7,17 +7,19 @@ interface TransactionTypeProps {
 
 export const Container = styled.div`
   position: absolute;
-  height: 100vh;
-  width: 100vw;
-
+  height: 100%;
+  max-width: 100%;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
 export const Background = styled.div`
-  height: 100vh;
+  height: 100%;
   width: 100vw;
+
+  max-width: 100vw;
 
   z-index: 100;
 
