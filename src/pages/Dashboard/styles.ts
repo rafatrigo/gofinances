@@ -5,6 +5,13 @@ interface CardProps {
   total?: boolean;
 }
 
+export const PageContainer = styled.div`
+  position: relative;
+
+  width: 100vw;
+  height: 100vh;
+`;
+
 export const Container = styled.div`
   width: 100%;
   max-width: 1120px;

@@ -9,7 +9,11 @@ import api from '../../services/api';
 
 import Header from '../../components/Header';
 
+import Form from '../../components/Form';
+
 import formatValue from '../../utils/formatValue';
+
+import { useForm } from '../../hooks/Form';
 
 import {
   Container,
@@ -23,6 +27,7 @@ import {
   TableData,
   TableRow,
   ButtonCreate,
+  PageContainer,
 } from './styles';
 
 interface Transaction {
@@ -45,6 +50,8 @@ interface Balance {
 const Dashboard: React.FC = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [balance, setBalance] = useState<Balance>({} as Balance);
+
+  const { showForm, showFormState } = useForm();
 
   const loadTransactions = useCallback(async (): Promise<void> => {
     const response = await api.get('/transactions');
@@ -71,7 +78,7 @@ const Dashboard: React.FC = () => {
 
   useEffect(() => {
     loadTransactions();
-  }, [loadTransactions]);
+  }, [loadTransactions, showFormState]);
 
   const DeleteTransaction = useCallback(
     async id => {
@@ -92,7 +99,8 @@ const Dashboard: React.FC = () => {
   );
 
   return (
-    <>
+    <PageContainer>
+      {showFormState && <Form />}
       <Header />
       <Container>
         <CardContainer>
@@ -120,7 +128,7 @@ const Dashboard: React.FC = () => {
         </CardContainer>
 
         <TableContainer>
-          <ButtonCreate>Criar nova transação</ButtonCreate>
+          <ButtonCreate onClick={showForm}>Criar nova transação</ButtonCreate>
 
           <Table>
             <TableHead>
@@ -150,7 +158,7 @@ const Dashboard: React.FC = () => {
           </Table>
         </TableContainer>
       </Container>
-    </>
+    </PageContainer>
   );
 };
 
