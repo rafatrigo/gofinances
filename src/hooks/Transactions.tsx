@@ -82,13 +82,18 @@ const TransactionProvider: React.FC = ({ children }) => {
       };
 
       await api.post('/transactions', newTransaction);
+      loadTransactions();
     },
-    [],
+    [loadTransactions],
   );
 
-  const deleteTransaction = useCallback(async (id: string): Promise<void> => {
-    await api.delete(`/transactions/${id}`);
-  }, []);
+  const deleteTransaction = useCallback(
+    async (id: string): Promise<void> => {
+      await api.delete(`/transactions/${id}`);
+      loadTransactions();
+    },
+    [loadTransactions],
+  );
 
   return (
     <TransactionContext.Provider

@@ -26,22 +26,20 @@ interface CreateTransaction {
 
 const FormComponent: React.FC = () => {
   const { hideForm } = useForm();
-  const { createTransaction, loadTransactions } = useTransaction();
+  const { createTransaction } = useTransaction();
 
   const [transactionType, setTransactionType] = useState<string>('income');
 
   const handleSubmit = useCallback(
     async ({ title, value, category }: CreateTransaction): Promise<void> => {
-      const type = transactionType;
       const transaction = {
         title,
         value,
         category,
-        type,
+        type: transactionType,
       };
 
       createTransaction(transaction);
-
       hideForm();
     },
     [hideForm, transactionType, createTransaction],

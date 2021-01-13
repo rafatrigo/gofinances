@@ -11,11 +11,11 @@ import { Container, PageContainer } from './styles';
 
 const Dashboard: React.FC = () => {
   const { showFormState } = useForm();
-  const { loadTransactions, balance, transactions } = useTransaction();
+  const { loadTransactions, balance } = useTransaction();
 
   useEffect(() => {
     loadTransactions();
-  }, [loadTransactions, showFormState, transactions]);
+  }, [loadTransactions, showFormState]);
 
   return (
     <PageContainer>

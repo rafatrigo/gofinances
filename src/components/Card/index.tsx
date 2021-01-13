@@ -1,10 +1,12 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
 import income from '../../assets/income.svg';
 import outcome from '../../assets/outcome.svg';
 import total from '../../assets/total.svg';
 
 import { Container, Card } from './styles';
+
+import { useTransaction } from '../../hooks/Transactions';
 
 interface Balance {
   income: string;
@@ -16,8 +18,8 @@ interface CardProps {
   balance: Balance;
 }
 
-const CardContainer: React.FC<CardProps> = props => {
-  const { balance } = props;
+const CardContainer: React.FC<CardProps> = () => {
+  const { balance } = useTransaction();
 
   return (
     <Container>

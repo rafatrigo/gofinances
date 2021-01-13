@@ -1,7 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 interface ContainerProps {
   size?: 'small' | 'large';
+  navigation: string;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -19,6 +20,8 @@ export const Container = styled.div<ContainerProps>`
     justify-content: space-between;
 
     nav {
+      display: flex;
+
       a {
         color: #fff;
         text-decoration: none;
@@ -33,7 +36,36 @@ export const Container = styled.div<ContainerProps>`
           opacity: 0.6;
         }
       }
+
+      div {
+        padding-bottom: 10px;
+      }
+
+      div + div {
+        margin-left: 10px;
+      }
     }
+
+    ${props =>
+      props.navigation === '/'
+        ? css`
+            div:first-child {
+              border-bottom: 2px solid #ff872c;
+            }
+
+            div:last-child {
+              opacity: 0.6;
+            }
+          `
+        : css`
+            div:first-child {
+              opacity: 0.6;
+            }
+
+            div:last-child {
+              border-bottom: 2px solid #ff872c;
+            }
+          `}
   }
 
   @media (max-width: 490px) {
