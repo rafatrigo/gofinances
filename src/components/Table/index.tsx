@@ -45,7 +45,7 @@ const TableContainer: React.FC = () => {
 
   return (
     <Container>
-      <ButtonCreate onClick={showForm}>Criar nova transação</ButtonCreate>
+      <ButtonCreate onClick={showForm}>Nova transação</ButtonCreate>
 
       <Table>
         <TableHead>
