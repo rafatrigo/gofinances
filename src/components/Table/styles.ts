@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { shade } from 'polished';
+import { animated } from 'react-spring';
 
 export const Container = styled.section`
   margin-top: 64px;
@@ -49,7 +50,7 @@ export const TableBody = styled.div`
   }
 `;
 
-export const TableRow = styled.div`
+export const TableRow = styled(animated.div)`
   width: 100%;
   background: #fff;
   height: 65px;
@@ -58,6 +59,12 @@ export const TableRow = styled.div`
   align-items: center;
 
   margin-bottom: 8px;
+
+  transition: 0.2s;
+
+  &:hover {
+    margin-left: 10px;
+  }
 
   @media (max-width: 620px) {
     height: 100%;

@@ -31,10 +31,13 @@ export const FormContainer = styled.div`
   background-color: #e5e5e5;
 
   z-index: 110;
-  position: absolute;
+  position: fixed;
 
   height: 410px;
   width: 400px;
+
+  top: calc(50vh - 205px);
+  right: calc(50vw - 200px);
 
   border-radius: 8px;
 

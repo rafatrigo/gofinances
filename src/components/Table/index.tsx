@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import { useTransition } from 'react-spring';
 
 import { FiTrash2 } from 'react-icons/fi';
 
@@ -32,6 +33,16 @@ const TableContainer: React.FC = () => {
     [deleteTransaction, loadTransactions],
   );
 
+  const transactionsWithTransition = useTransition(
+    transactions,
+    transaction => transaction.id,
+    {
+      from: { zoom: 0, opacity: 0 },
+      enter: { zoom: 1, opacity: 1 },
+      leave: { zoom: 0, opacity: 0 },
+    },
+  );
+
   return (
     <Container>
       <ButtonCreate onClick={showForm}>Criar nova transação</ButtonCreate>
@@ -44,18 +55,16 @@ const TableContainer: React.FC = () => {
           <span>Data</span>
         </TableHead>
         <TableBody>
-          {transactions.map(transaction => (
-            <TableRow key={transaction.id}>
-              <TableData className="title">{transaction.title}</TableData>
-              <TableData className={transaction.type}>
-                {transaction.type === 'outcome' && '- '}
-                {transaction.formattedValue}
+          {transactionsWithTransition.map(({ item, props, key }) => (
+            <TableRow key={key} style={props}>
+              <TableData className="title">{item.title}</TableData>
+              <TableData className={item.type}>
+                {item.type === 'outcome' && '- '}
+                {item.formattedValue}
               </TableData>
-              <TableData>{transaction.category.title}</TableData>
-              <TableData>{transaction.formattedDate}</TableData>
-              <ButtonDelete
-                onClick={() => handleDeleteTransaction(transaction.id)}
-              >
+              <TableData>{item.category.title}</TableData>
+              <TableData>{item.formattedDate}</TableData>
+              <ButtonDelete onClick={() => handleDeleteTransaction(item.id)}>
                 <FiTrash2 size={20} color="#e83f5b" />
               </ButtonDelete>
             </TableRow>
