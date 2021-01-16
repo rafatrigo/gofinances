@@ -1,12 +1,5 @@
 {
   "env": {
-<<<<<<< HEAD
-    "es6": true,
-    "node": true
-  },
-  "extends": [
-    "airbnb-base",
-=======
     "browser": true,
     "es6": true,
     "jest": true
@@ -14,7 +7,6 @@
   "extends": [
     "plugin:react/recommended",
     "airbnb",
->>>>>>> web/master
     "plugin:@typescript-eslint/recommended",
     "prettier/@typescript-eslint",
     "plugin:prettier/recommended"
@@ -25,20 +17,6 @@
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-<<<<<<< HEAD
-    "ecmaVersion": 2018,
-    "sourceType": "module"
-  },
-  "plugins": [
-    "@typescript-eslint",
-    "prettier"
-  ],
-  "rules": {
-    "no-underscore-dangle": "off",
-    "class-methods-use-this": "off",
-    "@typescript-eslint/camelcase": "off",
-    "prettier/prettier": "error",
-=======
     "ecmaFeatures": {
       "jsx": true
     },
@@ -59,24 +37,14 @@
         "allowExpressions": true
       }
     ],
->>>>>>> web/master
     "import/extensions": [
       "error",
       "ignorePackages",
       {
-<<<<<<< HEAD
-        "ts": "never"
-      }
-    ],
-    "@typescript-eslint/no-unused-vars": ["error", {
-      "argsIgnorePattern": "_"
-    }],
-=======
         "ts": "never",
         "tsx": "never"
       }
     ]
->>>>>>> web/master
   },
   "settings": {
     "import/resolver": {

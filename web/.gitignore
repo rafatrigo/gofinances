@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-.idea/
-.vscode/
-node_modules/
-dist/
-=======
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -27,4 +21,3 @@ dist/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
->>>>>>> web/master
