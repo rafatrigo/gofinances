@@ -1,0 +1,9 @@
+<<<<<<< HEAD
+/*.js
+node_modules
+dist
+=======
+**/*.js
+node_modules
+build
+>>>>>>> web/master
