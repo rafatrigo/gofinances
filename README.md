@@ -4,7 +4,7 @@ Gofinances is a finance control application, with which you can add transactions
 
 ![gif](.github/gofinances.gif)
 
-## 🚀 Tecnologias utilizadas
+## 🚀 Technologies used
 
 #### Frontend
 - React
@@ -81,4 +81,13 @@ cd backend
 yarn
 ```
 
-Duplique o arquivo `.env.example`, removendo a parte `.example` do nome (ficando apenas `.env`). Após isso, altere os valores para que correspondam com o qeu você colocou quando criou o container do docker.
+Duplicate the `.env.example` file, removing the` .example` part of the name (leaving only `.env`). After that, change the values to match what you put in when you created the docker container.
+
+After that run the migrations and start the backend.
+```sh
+#run the migrations
+yarn typeorm migration:run
+
+#start the backend
+yarn dev:server
+```
