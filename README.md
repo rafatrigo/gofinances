@@ -109,7 +109,7 @@ yarn dev:server
 
 The gofinaces base was developed in Rocketseat's GoStack bootcamp, but in the beginning this project just listed transactions and created transactions from the import of a .csv file, so I added other features like a responsive layout, a button to create transactions, delete transactions and some transitions and animations.
 
-But there are still many things to improve, so feel free to clone this repository and do your best.
+But there are still many things to improve, so feel free to clone this repository and give your best 💪.
 
 
 &nbsp;
