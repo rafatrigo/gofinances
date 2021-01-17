@@ -1,4 +1,4 @@
-# <h1 align="center">![Go Finances](./web/src/assets/logo.svg)</h1>
+# <h1 align="center">![gofinances](./web/src/assets/logo.svg)</h1>
 
 Gofinances is a finance control application, with which you can add transactions manually or import a .csv file containing a list of transactions to be added.
 
@@ -6,7 +6,7 @@ Gofinances is a finance control application, with which you can add transactions
 
 ## 🚀 Technologies used
 
-#### Frontend
+#### Front-end
 - React
 - Unform
 - Styled Components
@@ -14,7 +14,7 @@ Gofinances is a finance control application, with which you can add transactions
 - Axios
 
 
-#### Backend
+#### Back-end
 - NodeJS
 - Express
 - Docker
@@ -34,7 +34,7 @@ git clone https://github.com/rafatrigo/gofinances.git gofinances
 
 
 &nbsp;
-### Frontend
+### Front-end
 ```sh
 #go to the frontend folder
 cd web
@@ -48,7 +48,7 @@ yarn start
 &nbsp;
 ### Docker
 
-With the docker properly installed, make sure to create the database container.
+With the Docker properly installed, make sure to create the database container.
 ```sh
 docker run --name CONTAINER_NAME -e POSTGRES_USER=USER_NAME -e POSTGRES_PASSWORD=USER_PASSWORD -e POSTGRES_DB=DATABASE_NAME -p 5432:5432 -d postgres
 ```
@@ -72,7 +72,7 @@ sudo docker ps -a
 ---
 
 &nbsp;
-### Backend
+### Back-end
 
 ```sh
 #go to the backend folder
@@ -81,7 +81,18 @@ cd backend
 yarn
 ```
 
-Duplicate the `.env.example` file, removing the` .example` part of the name (leaving only `.env`). After that, change the values to match what you put in when you created the docker container.
+Duplicate the `.env.example` file, removing the` .example` part of the name (leaving only `.env`). After that, open the `.env` file and add the correct values to the variables to match what you entered when creating the Docker container.
+
+Example:
+```
+DB_TYPE='postgres'
+DB_HOST='localhost'
+DB_USERNAME=USER_NAME
+DB_PASSWORD=USER_PASSWORD
+DB_NAME=DATABASE_NAME
+
+```
+
 
 After that run the migrations and start the backend.
 ```sh
@@ -91,3 +102,16 @@ yarn typeorm migration:run
 #start the backend
 yarn dev:server
 ```
+---
+
+
+&nbsp;
+
+The gofinaces base was developed in Rocketseat's GoStack bootcamp, but in the beginning this project just listed transactions and created transactions from the import of a .csv file, so I added other features like a responsive layout, a button to create transactions, delete transactions and some transitions and animations.
+
+But there are still many things to improve, so feel free to clone this repository and do your best.
+
+
+&nbsp;
+
+Made with 💜 by Rafael Trigo
