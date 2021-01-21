@@ -8,6 +8,7 @@ Gofinances is a finance control application, with which you can add transactions
 
 #### Front-end
 - React
+- React spring
 - Unform
 - Styled Components
 - Typescript
