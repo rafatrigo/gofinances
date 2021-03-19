@@ -29,7 +29,7 @@ Gofinances is a finance control application, with which you can add transactions
 
 &nbsp;
 ### Clone this repository
-```sh
+```
 git clone https://github.com/rafatrigo/gofinances.git gofinances
 ```
 
